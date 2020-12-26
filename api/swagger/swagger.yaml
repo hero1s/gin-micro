@@ -1,0 +1,88 @@
+basePath: /v1/
+definitions:
+  controls.Resp:
+    properties:
+      age:
+        description: 年龄
+        type: integer
+      name:
+        description: 名字
+        type: string
+    type: object
+  response.JsonObject:
+    properties:
+      code:
+        description: 状态码
+        type: string
+      content:
+        description: 数据
+        type: object
+      message:
+        description: 消息
+        type: string
+    type: object
+info:
+  contact: {}
+  description: 接口文档
+  license: {}
+  title: gin-micro 服务框架测试
+  version: 0.0.1
+paths:
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用户名
+        in: query
+        name: username
+        required: true
+        type: string
+      - description: 密码
+        in: query
+        name: password
+        required: true
+        type: string
+      - description: 验证码
+        in: query
+        name: code
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.JsonObject'
+      summary: 用户登陆接口
+      tags:
+      - UserControl
+  /user/register:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.JsonObject'
+      summary: 用户注册接口
+      tags:
+      - UserControl
+  /user/say-hello:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controls.Resp'
+      summary: 用户hello
+      tags:
+      - UserControl
+swagger: "2.0"

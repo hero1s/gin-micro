@@ -1,0 +1,11 @@
+# This is a TOML document. Boom
+[Web]
+    Host = "0.0.0.0"
+    Port = "8081"
+    [Web.Limit]
+        Rate = 0
+        BucketSize = 100
+[Jaeger]
+    ServiceName = "trace-cli"
+    Addr        = "172.16.3.21:6831"
+Kafka = ["172.16.3.21:9092"]

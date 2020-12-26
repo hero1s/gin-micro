@@ -1,0 +1,133 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "接口文档",
+        "title": "gin-micro 服务框架测试",
+        "contact": {},
+        "license": {},
+        "version": "0.0.1"
+    },
+    "basePath": "/v1/",
+    "paths": {
+        "/user/login": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "UserControl"
+                ],
+                "summary": "用户登陆接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户名",
+                        "name": "username",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "密码",
+                        "name": "password",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "验证码",
+                        "name": "code",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.JsonObject"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/register": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "UserControl"
+                ],
+                "summary": "用户注册接口",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.JsonObject"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/say-hello": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "UserControl"
+                ],
+                "summary": "用户hello",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controls.Resp"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "controls.Resp": {
+            "type": "object",
+            "properties": {
+                "age": {
+                    "description": "年龄",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "名字",
+                    "type": "string"
+                }
+            }
+        },
+        "response.JsonObject": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "状态码",
+                    "type": "string"
+                },
+                "content": {
+                    "description": "数据",
+                    "type": "object"
+                },
+                "message": {
+                    "description": "消息",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

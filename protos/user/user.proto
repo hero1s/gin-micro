@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package user;
+
+// 用户登陆结构体
+message LoginParams{
+
+    // 用户名
+    string account = 1;
+
+    // 密码
+    string password = 2;
+
+    // 验证码
+    string code = 3;
+
+}
+
+message UserInfo{
+
+    // id
+    string id = 1;
+
+    // 账号
+    string account = 2;
+
+    // 昵称
+    string nickname = 3;
+
+    // 密码
+    string password = 4;
+
+    // 邮箱
+    string email = 5;
+}
+
+// 响应结构体
+message Result{
+
+    // 响应码
+    sint32 status = 1;
+
+    // 响应参数
+    map<string,string> map = 2;
+}
+
+message NoneParam{
+
+}
+
+enum Gender{
+    // 女
+    Women = 0;
+
+    // 男
+    Man = 1;
+}
+
+// 定义服务和接口
+service UserService {
+
+    // 用户登陆接口
+    rpc Login(LoginParams) returns (Result);
+
+    // 用户注册接口
+    rpc SignIn(UserInfo) returns (Result);
+
+    // SayHello接口
+    rpc SayHello(NoneParam) returns (Result);
+}
+
+

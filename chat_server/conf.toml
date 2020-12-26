@@ -1,0 +1,23 @@
+# This is a TOML document. Boom
+Etcd = ["172.16.3.21:2379"]
+
+[[Mysql]]
+    AliasName = "default"
+    Host = "172.16.3.21:8306"
+    User = "root"
+    Password = "e23456"
+    DbName = "cherry"
+    DebugLog = true
+    DueTime = 0
+
+[Redis]
+    Host = "172.16.3.21:6379"
+    Password = "e2345"
+
+[Server]
+    LogLevel = "debug"
+    LogPath = ""
+    WSAddr = "0.0.0.0:9991"
+    TCPAddr = ""
+    MaxConnNum = 1000
+
