@@ -3,6 +3,7 @@ package conf
 import (
 	"github.com/hero1s/golib/cache"
 	"github.com/hero1s/golib/conf"
+	cconf "github.com/hero1s/golib/connsvr/conf"
 	"github.com/hero1s/golib/db"
 	"github.com/hero1s/golib/log"
 )
@@ -32,6 +33,7 @@ func InitConf(confPath string) bool {
 	} else {
 		log.Infof("%+v", Config)
 	}
+	cconf.ConsolePort = 8080
 
 	return true
 }

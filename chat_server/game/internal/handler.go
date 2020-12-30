@@ -5,7 +5,7 @@ import (
 	"github.com/hero1s/golib/connsvr/gate"
 	"github.com/hero1s/golib/helpers/token"
 	"github.com/hero1s/golib/log"
-	"github.com/hero1s/golib/stringutils"
+	"github.com/hero1s/golib/utils/strutil"
 	"reflect"
 	"time"
 )
@@ -45,7 +45,7 @@ func handleUserLogin(args []interface{}) {
 	} else {
 		//log.Debugf("%v 平台token解析:uid:%v,device:%v,roleid:%v", m.LoginPlat, t.Uid, t.UserData, t.RoleId)
 	}
-	uid := uint64(stringutils.String2Int64(t.Id))
+	uid := uint64(strutil.String2Int64(t.Id))
 	a.SetUserData(UserInfo{Uid: uid, Ptime: 0, LoginPlat: m.LoginPlat, LoginTime: time.Now().Unix(), LastAddTime: time.Now().Unix()})
 	addUserAgent(uid, a, m.LoginPlat)
 
